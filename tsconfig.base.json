@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@enigma/footer": ["libs/footer/src/index.ts"],
-      "@enigma/header": ["libs/header/src/index.ts"]
+      "@enigma-tech-lab/footer": ["libs/footer/src/index.ts"],
+      "@enigma-tech-lab/header": ["libs/header/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -42,6 +42,23 @@
       "options": {
         "lintFilePatterns": ["libs/footer/**/*.ts", "libs/footer/**/*.html"]
       }
+    },
+    "deploy": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "branches": [
+          "+([0-9])?(.{+([0-9]),x}).x",
+          "master",
+          "next",
+          "next-major",
+          { "name": "beta", "prerelease": true },
+          { "name": "alpha", "prerelease": true }
+        ],
+        "github": true,
+        "changelog": true,
+        "npm": true,
+        "tagFormat": "footer-v${VERSION}"
+      }
     }
   }
 }

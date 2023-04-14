@@ -1,0 +1,37 @@
+name: Run Format & Lint & Build
+'on':
+  pull_request:
+
+jobs:
+  build_and_preview:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      actions: 'read'
+    steps:
+      - name: Checkout repo ✅
+        uses: actions/checkout@v2
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+      - name: NRWL setup ✅
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Install Dependencies 🔧
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+      - name: Pretty code 💄
+        run: npx nx format:check
+      - name: Lint ♻️
+        run: npx nx affected -t lint
+      - name: Build 📦
+        run: npx nx affected -t build
+      - name: Test 🧪
+        run: npx nx affected -t test --ci --code-coverage
