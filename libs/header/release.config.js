@@ -1,4 +1,4 @@
-const appName = 'footer';
+const appName = 'header';
 const appPath = `libs/${appName}`;
 const artifactName = appName;
 module.exports = {

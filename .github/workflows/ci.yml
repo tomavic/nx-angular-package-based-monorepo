@@ -1,0 +1,34 @@
+name: Publish Libraries
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo ✅
+        uses: actions/checkout@v2
+      - name: Install Dependencies 🔧
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+      - name: Pretty code 💄
+        run: npx nx format:check
+      - name: Lint ♻️
+        run: npx nx affected -t lint
+      - name: Build 📦
+        run: npx nx affected -t build
+      - name: Test 🧪
+        run: npx nx affected -t test --ci --code-coverage
+      - name: Release 🚀
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx nx affected -t release
