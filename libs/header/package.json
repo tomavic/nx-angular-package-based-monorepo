@@ -1,12 +1,21 @@
 {
-  "name": "@enigma/header",
+  "name": "@enigma-tech-lab/header",
   "version": "0.0.1",
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomavic/enigma-nx-angular.git"
   },
   "sideEffects": false
 }

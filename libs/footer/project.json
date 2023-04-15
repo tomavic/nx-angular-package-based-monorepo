@@ -42,6 +42,16 @@
       "options": {
         "lintFilePatterns": ["libs/footer/**/*.ts", "libs/footer/**/*.html"]
       }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npx semantic-release --extends=./libs/footer/release.config.js"
+          }
+        ]
+      }
     }
   }
 }
