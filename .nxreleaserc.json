@@ -3,5 +3,5 @@
   "npm": true,
   "github": true,
   "repositoryUrl": "https://github.com/tomavic/enigma-nx-angular",
-  "branches": ["main"]
+  "branches": ["master"]
 }
