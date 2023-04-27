@@ -104,7 +104,8 @@
         "github": true,
         "changelog": true,
         "npm": false,
-        "tagFormat": "HomeApp-v${VERSION}"
+        "tagFormat": "home-v${VERSION}",
+        "commitMessage": "chore(home): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     },
     "serve-static": {

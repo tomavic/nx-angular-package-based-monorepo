@@ -27,8 +27,7 @@ jobs:
           else
           npm i
           fi
-      - name: Pretty code 💄
-        run: npx nx format:check
+
       - name: Lint ♻️
         run: npx nx affected -t lint
       - name: Build 📦

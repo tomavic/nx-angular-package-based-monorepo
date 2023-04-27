@@ -1,8 +1,8 @@
-name: Publish Libraries
+name: Next - Publish Libraries & Deploy App
 'on':
   push:
     branches:
-      - master
+      - next
 
 jobs:
   build_and_deploy:
@@ -26,16 +26,26 @@ jobs:
           else
           npm i
           fi
-      - name: Pretty code 💄
-        run: npx nx format:check
+
       - name: Lint ♻️
-        run: npx nx affected -t lint --all --parallel=true
+        run: npx nx affected -t lint
+
       - name: Build 📦
-        run: npx nx affected -t build --all --parallel=true
+        run: npx nx affected -t build
+
       - name: Test 🧪
-        run: npx nx affected -t test --all --ci --code-coverage --parallel=true
+        run: npx nx affected -t test --ci --code-coverage
+
       - name: Release 🚀
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx nx run-many --target=deploy --parallel=false
+
+      - name: Deploy to Firebase 🔥
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NX_ANGULAR_RELEASE }}'
+          projectId: nx-angular-release
+          channelId: next

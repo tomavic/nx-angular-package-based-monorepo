@@ -57,7 +57,8 @@
         "github": true,
         "changelog": true,
         "npm": true,
-        "tagFormat": "footer-v${VERSION}"
+        "tagFormat": "footer-v${VERSION}",
+        "commitMessage": "chore(footer): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     }
   }
