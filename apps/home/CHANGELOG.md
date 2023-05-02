@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/tomavic/enigma-nx-angular/compare/home-v1.1.0...home-v1.2.0) (2023-05-02)
+
+
+### Features
+
+* **blog:** :sparkles: add blog app ([7738d6d](https://github.com/tomavic/enigma-nx-angular/commit/7738d6d1eb9e7017e332e02e018b9ad106f76572))
+
 # [1.1.0](https://github.com/tomavic/enigma-nx-angular/compare/home-v1.0.0...home-v1.1.0) (2023-05-02)
 
 
