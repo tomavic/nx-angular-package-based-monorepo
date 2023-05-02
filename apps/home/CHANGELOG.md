@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/tomavic/enigma-nx-angular/compare/home-v1.0.0...home-v1.1.0) (2023-05-02)
+
+
+### Features
+
+* **home:** :sparkles: edit title ([14c6084](https://github.com/tomavic/enigma-nx-angular/commit/14c6084f5d115fe3af3129bbde45fa76ab3039e7))
+
 # 1.0.0 (2023-04-28)
 
 
